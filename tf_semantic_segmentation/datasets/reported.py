@@ -1,6 +1,6 @@
 from .dataset import Dataset
-from ..utils import get_files, download_and_extract, download_file, download_records
-from .utils import get_split, DataType, Color
+from ..utils import get_files, download_and_extract, download_file
+from .utils import get_split, DataType, Color, download_records
 
 import imageio
 import os
