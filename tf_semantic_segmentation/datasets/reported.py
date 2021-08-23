@@ -33,6 +33,8 @@ class ReportedDS(Dataset):
 
     @property
     def colormap(self):
+        dataset_dir = os.path.join(self.cache_dir, 'dataset')
+        extracted = download_records('reported', dataset_dir)
         file_path = os.path.join(self.cache_dir, 'dataset/reported/label_colors.txt')
 
         color_label_mapping = {}
@@ -48,6 +50,8 @@ class ReportedDS(Dataset):
 
     @property
     def labels(self):
+        dataset_dir = os.path.join(self.cache_dir, 'dataset')
+        extracted = download_records('reported', dataset_dir)
         file_path = os.path.join(self.cache_dir, 'dataset/reported/label_colors.txt')
 
         labels = []
