@@ -1,5 +1,6 @@
 # datasets
 from . import camvid
+from . import reported
 from . import cityscapes
 from . import mots_challenge
 from . import mapping_challenge
@@ -27,6 +28,7 @@ datasets_by_name = {
     # "ade20k": ade20k.Ade20k,
     "sun": sun.Kinect2Data,
     "camvid": camvid.CamSeq01,
+    "reported": reported.ReportedDS,
     "coco2014": ms_coco.Coco2014,
     "coco2017": ms_coco.Coco2017,
     "cityscapes": cityscapes.Cityscapes,
