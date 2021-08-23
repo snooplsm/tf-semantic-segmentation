@@ -14,9 +14,6 @@ class ReportedDS(Dataset):
     Dataset url: http://mi.eng.cam.ac.uk/research/projects/VideoRec/CamSeq01/CamSeq01.zip
     """
 
-    DATA_URL = "https://drive.google.com/file/d/1bJ7HedSEsmeCWb-AyZ7WNndfJ6OEI3Vu/view?usp=sharing"
-    LABEL_COLORS_URL = "http://mi.eng.cam.ac.uk/research/projects/VideoRec/CamVid/data/label_colors.txt"
-
     def __init__(self, cache_dir):
         super(ReportedDS, self).__init__(cache_dir)
         self._labels = self.labels
@@ -26,7 +23,8 @@ class ReportedDS(Dataset):
         dataset_dir = os.path.join(self.cache_dir)
         if not os.path.exists(dataset_dir):
             extracted = download_records('reported', dataset_dir)
-        extracted = download_records('reported', dataset_dir)
+        else:
+            extracted = os.path.join(dataset_dir,'dataset')
         imgs = get_files(extracted, extensions=["png","jpg"])
         images = list(filter(lambda x: not x.endswith(".png"), imgs))
         labels = list(filter(lambda x: x.endswith(".png"), imgs))
