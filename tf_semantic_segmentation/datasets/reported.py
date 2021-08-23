@@ -23,7 +23,7 @@ class ReportedDS(Dataset):
         self._colormap = self.colormap
 
     def raw(self):
-        dataset_dir = os.path.join(self.cache_dir, 'dataset')
+        dataset_dir = os.path.join(self.cache_dir)
         extracted = download_records('reported', dataset_dir)
         imgs = get_files(extracted, extensions=["png","jpg"])
         images = list(filter(lambda x: not x.endswith(".png"), imgs))
@@ -33,9 +33,9 @@ class ReportedDS(Dataset):
 
     @property
     def colormap(self):
-        dataset_dir = os.path.join(self.cache_dir, 'dataset')
+        dataset_dir = os.path.join(self.cache_dir)
         extracted = download_records('reported', dataset_dir)
-        file_path = os.path.join(self.cache_dir, 'dataset/reported/label_colors.txt')
+        file_path = os.path.join(self.cache_dir, 'labels.txt')
 
         color_label_mapping = {}
         with open(file_path, "r") as handler:
@@ -50,9 +50,9 @@ class ReportedDS(Dataset):
 
     @property
     def labels(self):
-        dataset_dir = os.path.join(self.cache_dir, 'dataset')
+        dataset_dir = os.path.join(self.cache_dir)
         extracted = download_records('reported', dataset_dir)
-        file_path = os.path.join(self.cache_dir, 'dataset/reported/label_colors.txt')
+        file_path = os.path.join(self.cache_dir, 'labels.txt')
 
         labels = []
 
