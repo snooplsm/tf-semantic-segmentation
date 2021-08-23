@@ -33,7 +33,7 @@ class ReportedDS(Dataset):
 
     @property
     def colormap(self):
-        file_path = os.path.join(self.cache_dir, 'dataset/reported/labels.txt')
+        file_path = os.path.join(self.cache_dir, 'dataset/reported/label_colors.txt')
 
         color_label_mapping = {}
         with open(file_path, "r") as handler:
