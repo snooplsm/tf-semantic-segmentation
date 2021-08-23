@@ -48,7 +48,7 @@ class ReportedDS(Dataset):
 
     @property
     def labels(self):
-        file_path = download_file(self.LABEL_COLORS_URL, self.cache_dir)
+        file_path = os.path.join(self.cache_dir, 'dataset/reported/label_colors.txt')
 
         labels = []
 
