@@ -29,9 +29,9 @@ class ReportedDS(Dataset):
         images = list(filter(lambda x: not x.endswith(".png"), imgs))
         labels = list(filter(lambda x: x.endswith(".png"), imgs))
         trainset = list(zip(images, labels))
-        t = get_split(trainset,val_split=1.0,shuffle=False)
-        v = get_split(trainset,val_split=.5,shuffle=False)
-        t = get_split(trainset,val_split=.3,shuffle=False)
+        t = get_split(trainset,train_split=1.0)
+        v = get_split(trainset,train_split=.5,shuffle=False)
+        t = get_split(trainset,train_split=.3,shuffle=False)
         
         return {
             DataType.TRAIN: t[DataType.TRAIN],
