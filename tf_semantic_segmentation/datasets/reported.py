@@ -45,7 +45,7 @@ class ReportedDS(Dataset):
     def colormap(self):
         dataset_dir = self.cache_dir
         if not os.path.exists(dataset_dir):
-            extracted = download_records('reported', dataset_dir)
+            extracted = download_records('reported-512', dataset_dir)
         file_path = os.path.join(self.cache_dir, 'labels.txt')
         color_label_mapping = {}
         with open(file_path, "r") as handler:
@@ -62,7 +62,7 @@ class ReportedDS(Dataset):
     def labels(self):
         dataset_dir = self.cache_dir
         if not os.path.exists(dataset_dir):
-            extracted = download_records('reported', dataset_dir)
+            extracted = download_records('reported-512', dataset_dir)
         file_path = os.path.join(self.cache_dir, 'labels.txt')
 
         labels = []
