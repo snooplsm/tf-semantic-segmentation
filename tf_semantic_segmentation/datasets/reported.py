@@ -47,7 +47,6 @@ class ReportedDS(Dataset):
         if not os.path.exists(dataset_dir):
             extracted = download_records('reported', dataset_dir)
         file_path = os.path.join(self.cache_dir, 'labels.txt')
-        print("label file path", file_path)
         color_label_mapping = {}
         with open(file_path, "r") as handler:
             for line in handler.readlines():
@@ -78,14 +77,11 @@ class ReportedDS(Dataset):
 
     def parse_example(self, example):
         image_path, target_path = example
-        print("parse",image_path)
         i = imageio.imread(image_path)
-        print("parse",target_path)
         t = imageio.imread(target_path)
         mask = np.zeros((i.shape[0], i.shape[1]), np.uint8)        
 
         for color, label in self._colormap.items():
-            print("color",color,"label",label)
             color = [color.r, color.g, color.b]
             idxs = np.where(np.all(t == color, axis=-1))
             mask[idxs] = self._labels.index(label)
