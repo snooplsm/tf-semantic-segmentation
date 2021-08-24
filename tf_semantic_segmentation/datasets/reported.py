@@ -35,8 +35,8 @@ class ReportedDS(Dataset):
         
         return {
             DataType.TRAIN: t[DataType.TRAIN],
-            DataType.VAL: t[DataType.VAL],
-            DataType.TEST: t[DataType.TEST]
+            DataType.VAL: t[DataType.TRAIN],
+            DataType.TEST: t[DataType.TRAIN]
         }
 
     @property
