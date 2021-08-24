@@ -29,7 +29,15 @@ class ReportedDS(Dataset):
         images = list(filter(lambda x: not x.endswith(".png"), imgs))
         labels = list(filter(lambda x: x.endswith(".png"), imgs))
         trainset = list(zip(images, labels))
-        return get_split(trainset)
+        t = get_split(trainset,val_split=1.0,shuffle=False)
+        v = get_split(trainset,val_split=.5,shuffle=False)
+        t = get_split(trainset,val_split=.3,shuffle=False)
+        
+        return {
+            DataType.TRAIN: t[DataType.TRAIN],
+            DataType.VAL: t[DataType.VAL],
+            DataType.TEST: t[DataType.TEST]
+        }
 
     @property
     def colormap(self):
@@ -68,8 +76,9 @@ class ReportedDS(Dataset):
 
     def parse_example(self, example):
         image_path, target_path = example
-        print("parse",image_path,target_path)
+        print("parse",image_path)
         i = imageio.imread(image_path)
+        print("parse",target_path)
         t = imageio.imread(target_path)
         mask = np.zeros((i.shape[0], i.shape[1]), np.uint8)        
 
