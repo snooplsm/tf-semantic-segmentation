@@ -22,7 +22,7 @@ class ReportedDS(Dataset):
     def raw(self):
         dataset_dir = os.path.join(self.cache_dir)
         if not os.path.exists(dataset_dir):
-            extracted = download_records('reported', dataset_dir)
+            extracted = download_records('reported-512', dataset_dir)
         else:
             extracted = os.path.join(dataset_dir,'dataset')
         imgs = get_files(extracted, extensions=["png","jpg"])

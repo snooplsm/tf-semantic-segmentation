@@ -15,7 +15,8 @@ google_drive_records_by_tag = {
     'camvid': "https://drive.google.com/file/d/12ma5YOdoCc0K-cY3meYMEU9sxgT25eeT/view?usp=sharing",
     'cityscapes-512x256': "https://drive.google.com/file/d/1VLzs6ttsFl7XRO6MF7b84F8-sqFeSDEr/view?usp=sharing",
     'shapes-10k-256x256-resize': 'https://drive.google.com/file/d/1LI06-7UmauMleY5LI2Pdo6_tOwBiVMMa/view?usp=sharing',
-    'reported':'https://drive.google.com/file/d/1jqpsNzZv4Hc3EeeDKJNnYSwsrjkXMYvY/view?usp=sharing'
+    'reported':'https://drive.google.com/file/d/1jqpsNzZv4Hc3EeeDKJNnYSwsrjkXMYvY/view?usp=sharing',
+    'reported-512': 'https://drive.google.com/file/d/1K8fWWEKRMeYfjDoNyXlUiMNXOuKDmqCO/view?usp=sharing'
 }
 
 
