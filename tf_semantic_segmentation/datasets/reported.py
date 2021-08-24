@@ -32,13 +32,13 @@ class ReportedDS(Dataset):
         valset = list(zip(images,labels))
         testset = list(zip(images,labels))
         t = get_split(trainset,train_split=1.0)
-        v = get_split(valset,train_split=.5,shuffle=False)
-        t = get_split(testset,train_split=.3,shuffle=False)
+        v = get_split(trainset,train_split=.5,shuffle=False)
+        tv = get_split(trainset,train_split=.3,shuffle=False)
         
         return {
             DataType.TRAIN: t[DataType.TRAIN],
-            DataType.VAL: t[DataType.TRAIN],
-            DataType.TEST: t[DataType.TRAIN]
+            DataType.VAL: v[DataType.TRAIN],
+            DataType.TEST: tv[DataType.TRAIN]
         }
 
     @property
