@@ -31,7 +31,7 @@ class ReportedDS(Dataset):
         trainset = list(zip(images, labels))
         valset = list(zip(images,labels))
         testset = list(zip(images,labels))
-        return get_split(trainset)
+        return get_split(trainset,train_split=.5)
 
     @property
     def colormap(self):
@@ -47,7 +47,7 @@ class ReportedDS(Dataset):
                 color = Color(*color)
                 label = args[-1].replace("\n", "")
                 color_label_mapping[color] = label
-
+        print("color map", color_label_mapping)
         return color_label_mapping
 
     @property
